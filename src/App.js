@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import bootstrap from '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import {BrowserRouter ,Route,Link,Switch,Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Homescreen from './screens/Homescreen';
+import Cartscreen from './screens/Cartscreen';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+<BrowserRouter>
+      <Routes>
+    <Route path="/" element={<Homescreen></Homescreen>}/>
+    <Route path="/cart" element={<Cartscreen></Cartscreen>}/>
+</Routes>
+</BrowserRouter>
+
     </div>
   );
 }
